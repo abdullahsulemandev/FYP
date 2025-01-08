@@ -1,7 +1,7 @@
-/* Global Styles */
+/* Global Styles
 body {
-    background-color: #000; /* Black background */
-    color: #fff; /* White text */
+    background-color: #000; 
+    color: #fff; 
     font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
@@ -10,7 +10,7 @@ body {
     margin: 0;
 }
 
-/* Container for form */
+
 .container {
     width: 100%;
     max-width: 400px;
@@ -18,23 +18,22 @@ body {
     margin: 0 auto;
 }
 
-/* Form container */
+ 
 .form-container {
-    background-color: #1c1c1c; /* Dark gray container */
+    background-color: #1c1c1c;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
     text-align: center;
 }
 
-/* Headings */
 h2 {
     margin-bottom: 20px;
     font-size: 24px;
     font-weight: 300;
 }
 
-/* Input group */
+
 .input-group {
     margin-bottom: 15px;
     text-align: left;
@@ -55,7 +54,7 @@ h2 {
     color: #fff;
 }
 
-/* Buttons */
+
 .btn {
     background-color: #fff;
     color: #000;
@@ -73,7 +72,7 @@ h2 {
     color: #fff;
 }
 
-/* Center text */
+
 .text-center {
     margin-top: 20px;
 }
@@ -87,9 +86,9 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Forgot Password Page */
+
 .forgot-password-container {
-    background-color: #1c1c1c; /* Dark gray container */
+    background-color: #1c1c1c;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
@@ -104,9 +103,9 @@ a:hover {
     margin-top: 20px;
 }
 
-/* Reset Password Page */
+
 .reset-password-container {
-    background-color: #1c1c1c; /* Dark gray container */
+    background-color: #1c1c1c; 
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
@@ -121,7 +120,6 @@ a:hover {
     margin-top: 20px;
 }
 
-/* Styling for error/success messages */
 .flash-message {
     margin-top: 10px;
     padding: 10px;
@@ -137,9 +135,8 @@ a:hover {
     background-color: #f44336;
 }
 
-/* Feedback Page Styles */
 .feedback-container {
-    background-color: #1c1c1c; /* Dark gray container */
+    background-color: #1c1c1c; 
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
@@ -187,7 +184,7 @@ a:hover {
     background-color: #772ce8;
 }
 
-/* Flash Messages */
+
 .feedback-container .flash-message {
     margin-top: 10px;
     padding: 10px;
@@ -204,7 +201,7 @@ a:hover {
     background-color: #f44336;
 }
 
-/* Progress Bar Styles */
+
 .btn-download {
     display: inline-block;
     outline: 0;
@@ -244,4 +241,4 @@ a:hover {
 .message {
     text-align: center;
     margin-top: 20px;
-}
+} */

@@ -44,7 +44,7 @@
             <li><a href="{{ url_for('view_rendering') }}">Upload Video</a></li>
             {% endif %}
             <li><a href="#about">About</a></li>
-            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="{{ url_for('pricing') }}">Pricing</a></li>
             <li><a href="{{ url_for('contact') }}">Contact</a></li>
             {% if not session.get('user') %}
             <li><a href="{{ url_for('login') }}">Login</a></li>

@@ -14,6 +14,7 @@ def init_db():
                         email TEXT UNIQUE NOT NULL,
                         password TEXT NOT NULL
                      )''')
+
         # Create feedback table
         c.execute('''CREATE TABLE IF NOT EXISTS feedback (
                         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -22,15 +23,35 @@ def init_db():
                         timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
                         FOREIGN KEY (user_id) REFERENCES users (id)
                      )''')
+
         # Create filters table using user_email as a foreign key
         c.execute('''CREATE TABLE IF NOT EXISTS filters (
                         id INTEGER PRIMARY KEY AUTOINCREMENT,
                         user_email TEXT NOT NULL,
                         filter TEXT NOT NULL,
-                        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
                         video_id TEXT NOT NULL,
+                        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
                         FOREIGN KEY (user_email) REFERENCES users (email)
                     )''')
+
+        # Create happy_clients table
+        c.execute('''CREATE TABLE IF NOT EXISTS happy_clients (
+                         id INTEGER PRIMARY KEY AUTOINCREMENT,
+                         name TEXT NOT NULL,
+                         email TEXT NOT NULL
+                    )''')
+        # create video analyzed
+        
+        c.execute('''CREATE TABLE IF NOT EXISTS stats (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        happy_clients_count INTEGER DEFAULT 0,
+                        videos_analyzed_count INTEGER DEFAULT 0
+                    )''')
+
+        # Ensure stats table has an initial row
+        c.execute('INSERT OR IGNORE INTO stats (id, happy_clients_count, videos_analyzed_count) VALUES (1, 0, 0)')
+
+
         conn.commit()
 
 # Add a new user with hashed password to the users table
@@ -41,9 +62,13 @@ def add_user(email, password):
             hashed_password = generate_password_hash(password)
             c.execute('INSERT INTO users (email, password) VALUES (?, ?)', (email, hashed_password))
             conn.commit()
+
+            # Increment happy clients count
+            increment_happy_clients_count()
             return True
     except sqlite3.IntegrityError:
-        return False  # User already exists
+        print("Error: User with this email already exists.")
+        return False
     except Exception as e:
         print(f"Error adding user: {e}")
         return False
@@ -55,9 +80,7 @@ def check_user_credentials(email, password):
             c = conn.cursor()
             c.execute('SELECT password FROM users WHERE email = ?', (email,))
             result = c.fetchone()
-            if result and check_password_hash(result[0], password):
-                return True
-            return False
+            return result and check_password_hash(result[0], password)
     except Exception as e:
         print(f"Error checking credentials: {e}")
         return False
@@ -67,7 +90,7 @@ def find_user_by_email(email):
     try:
         with sqlite3.connect(DB_PATH) as conn:
             c = conn.cursor()
-            c.execute('SELECT id, email, password FROM users WHERE email = ?', (email,))
+            c.execute('SELECT id, email FROM users WHERE email = ?', (email,))
             return c.fetchone()
     except Exception as e:
         print(f"Error finding user: {e}")
@@ -81,7 +104,7 @@ def update_user_password(email, new_password):
             hashed_password = generate_password_hash(new_password)
             c.execute('UPDATE users SET password = ? WHERE email = ?', (hashed_password, email))
             conn.commit()
-            return c.rowcount > 0  # Return True if the update was successful
+            return c.rowcount > 0
     except Exception as e:
         print(f"Error updating password: {e}")
         return False
@@ -110,24 +133,61 @@ def get_all_feedback():
         print(f"Error retrieving feedback: {e}")
         return []
 
-# Function to save the filter applied with video_id and timestamp
+# Save a detected filter to the database
 def save_detected_filter(user_email, detected_filter, video_id):
     try:
         with sqlite3.connect(DB_PATH) as conn:
             c = conn.cursor()
-
-            # Get the current timestamp
             timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-
-            # Insert the detected filter into the filters table
-            c.execute('''
-                INSERT INTO filters (user_email, filter, video_id, timestamp) 
-                VALUES (?, ?, ?, ?)
-            ''', (user_email, detected_filter, video_id, timestamp))
-
+            c.execute('INSERT INTO filters (user_email, filter, video_id, timestamp) VALUES (?, ?, ?, ?)',
+                      (user_email, detected_filter, video_id, timestamp))
             conn.commit()
-            print(f"Filter {detected_filter} saved for user_email {user_email} for video {video_id} at {timestamp}")
             return True
     except Exception as e:
         print(f"Error saving filter: {e}")
         return False
+
+# Get the count of happy clients
+def get_happy_clients_count():
+    try:
+        with sqlite3.connect(DB_PATH) as conn:
+            c = conn.cursor()
+            c.execute('SELECT happy_clients_count FROM stats WHERE id = 1')
+            result = c.fetchone()
+            return result[0] if result else 0
+    except Exception as e:
+        print(f"Error fetching happy clients count: {e}")
+        return 0
+
+# Increment the happy clients count
+def increment_happy_clients_count():
+    try:
+        with sqlite3.connect(DB_PATH) as conn:
+            c = conn.cursor()
+            c.execute('UPDATE stats SET happy_clients_count = happy_clients_count + 1 WHERE id = 1')
+            conn.commit()
+    except Exception as e:
+        print(f"Error incrementing happy clients count: {e}")
+        
+# Get the count of analyzed videos
+def get_videos_analyzed_count():
+    try:
+        with sqlite3.connect(DB_PATH) as conn:
+            c = conn.cursor()
+            c.execute('SELECT videos_analyzed_count FROM stats WHERE id = 1')
+            result = c.fetchone()
+            return result[0] if result else 0
+    except Exception as e:
+        print(f"Error fetching videos analyzed count: {e}")
+        return 0
+
+# Increment the videos analyzed count
+def increment_videos_analyzed_count():
+    try:
+        with sqlite3.connect(DB_PATH) as conn:
+            c = conn.cursor()
+            c.execute('UPDATE stats SET videos_analyzed_count = videos_analyzed_count + 1 WHERE id = 1')
+            conn.commit()
+    except Exception as e:
+        print(f"Error incrementing videos analyzed count: {e}")
+

@@ -45,7 +45,7 @@
     <header id="header" class="header d-flex align-items-center fixed-top">
         <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
     
-          <a href="{{ url_for('index') }}" class="logo d-flex align-items-center">
+          <a href="{{ url_for('index') }}" class="logo d-flex align-items-center background-color: #10058c;">
             <!-- Uncomment the line below if you also wish to use an image logo -->
             <img src="{{ url_for('static', filename='images/logo.png') }}" >
             <h1 class="sitename">SilverScreen IQ</h1>
@@ -58,7 +58,7 @@
                   <li><a href="{{ url_for('view_rendering') }}">Upload Video</a></li>
               {% endif %}
               <li><a href="#about">About</a></li>
-              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="{{ url_for('pricing') }}">Pricing</a></li>
               <li><a href="{{ url_for('contact') }}">Contact</a></li>
               {% if not session.get('user') %}
                     <li><a href="{{ url_for('login') }}">Login</a></li>
@@ -86,12 +86,12 @@
             </div>
   
             <div class="col-lg-6  d-flex flex-column justify-content-center" data-aos="fade-in">
-              <h1>Build Your Landing Page With <span>Bootslander</span></h1>
-              <p>We are team of talented designers making websites with Bootstrap</p>
-              <div class="d-flex">
+              <h1> Smart Video Cencorship, Simplified with <span>SilverScreen IQ</span></h1>
+              <p>Advanced AI Detects and Removes Nudity, Violence, and More for a Safer Viewing Experience</p>
+              <!-- <div class="d-flex">
                 <a href="#about" class="btn-get-started">Get Started</a>
                 <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
-              </div>
+              </div> -->
             </div>
   
           </div>
@@ -122,8 +122,11 @@
   
             <div class="col-xl-5 content">
               <h3>About Us</h3>
-              <h2>Ducimus rerum libero reprehenderit cumque</h2>
-              <p>Ipsa sint sit. Quis ducimus tempore dolores impedit et dolor cumque alias maxime. Enim reiciendis minus et rerum hic non. Dicta quas cum quia maiores iure. Quidem nulla qui assumenda incidunt voluptatem tempora deleniti soluta.</p>
+              <h2>Welcome to SilverScreenIQ, your trusted partner in creating safe and enjoyable viewing experiences for everyone.
+              </h2>
+              <p> Our platform is designed to empower users with advanced tools to analyze and edit videos, ensuring content aligns with personal, family, or community standards. Whether you're a parent safeguarding what your family watches or a professional preparing content for a broader audience, our solution seamlessly removes inappropriate scenes such as nudity, kissing, and violence with precision and ease.
+
+              </p>
               <a href="#" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
             </div>
   
@@ -133,34 +136,35 @@
                 <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
                   <div class="icon-box">
                     <i class="bi bi-buildings"></i>
-                    <h3>Eius provident</h3>
-                    <p>Magni repellendus vel ullam hic officia accusantium ipsa dolor omnis dolor voluptatem</p>
+                    <h3>Mission Statement</h3>
+                    <p> To empower individuals and organizations with cutting-edge video analysis tools that promote safe, inclusive, and tailored viewing experiences. By leveraging advanced AI, we aim to simplify content filtering, enabling users to align media with their personal, family, or professional values effortlessly.
+                    </p>
                   </div>
                 </div> <!-- End Icon Box -->
   
                 <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
                   <div class="icon-box">
                     <i class="bi bi-clipboard-pulse"></i>
-                    <h3>Rerum aperiam</h3>
-                    <p>Autem saepe animi et aut aspernatur culpa facere. Rerum saepe rerum voluptates quia</p>
+                    <h3>Vision Statement</h3>
+                    <p> To be the global leader in ethical video processing technology, fostering a world where media consumption respects diverse values and preferences, and technology is seamlessly integrated into safeguarding what matters most.</p>
                   </div>
                 </div> <!-- End Icon Box -->
   
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <!-- <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
                   <div class="icon-box">
                     <i class="bi bi-command"></i>
                     <h3>Veniam omnis</h3>
                     <p>Omnis perferendis molestias culpa sed. Recusandae quas possimus. Quod consequatur corrupti</p>
                   </div>
-                </div> <!-- End Icon Box -->
+                </div>  -->
   
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+                <!-- <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
                   <div class="icon-box">
                     <i class="bi bi-graph-up-arrow"></i>
                     <h3>Delares sapiente</h3>
                     <p>Sint et dolor voluptas minus possimus nostrum. Reiciendis commodi eligendi omnis quideme lorenda</p>
                   </div>
-                </div> <!-- End Icon Box -->
+                </div>  -->
   
               </div>
             </div>
@@ -171,7 +175,7 @@
       </section><!-- /About Section -->
   
       <!-- Features Section -->
-      <section id="features" class="features section">
+      <!-- <section id="features" class="features section">
   
         <div class="container">
   
@@ -184,141 +188,57 @@
               </div>
             </div><!-- End Feature Item -->
   
-            <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="200">
-              <div class="features-item">
-                <i class="bi bi-infinity" style="color: #5578ff;"></i>
-                <h3><a href="" class="stretched-link">Dolor Sitema</a></h3>
-              </div>
-            </div><!-- End Feature Item -->
-  
-            <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="300">
-              <div class="features-item">
-                <i class="bi bi-mortarboard" style="color: #e80368;"></i>
-                <h3><a href="" class="stretched-link">Sed perspiciatis</a></h3>
-              </div>
-            </div><!-- End Feature Item -->
-  
-            <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="400">
-              <div class="features-item">
-                <i class="bi bi-nut" style="color: #e361ff;"></i>
-                <h3><a href="" class="stretched-link">Magni Dolores</a></h3>
-              </div>
-            </div><!-- End Feature Item -->
-  
-            <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="500">
-              <div class="features-item">
-                <i class="bi bi-shuffle" style="color: #47aeff;"></i>
-                <h3><a href="" class="stretched-link">Nemo Enim</a></h3>
-              </div>
-            </div><!-- End Feature Item -->
-  
-            <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="600">
-              <div class="features-item">
-                <i class="bi bi-star" style="color: #ffa76e;"></i>
-                <h3><a href="" class="stretched-link">Eiusmod Tempor</a></h3>
-              </div>
-            </div><!-- End Feature Item -->
-  
-            <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="700">
-              <div class="features-item">
-                <i class="bi bi-x-diamond" style="color: #11dbcf;"></i>
-                <h3><a href="" class="stretched-link">Midela Teren</a></h3>
-              </div>
-            </div><!-- End Feature Item -->
-  
-            <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="800">
-              <div class="features-item">
-                <i class="bi bi-camera-video" style="color: #4233ff;"></i>
-                <h3><a href="" class="stretched-link">Pira Neve</a></h3>
-              </div>
-            </div><!-- End Feature Item -->
-  
-            <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="900">
-              <div class="features-item">
-                <i class="bi bi-command" style="color: #b2904f;"></i>
-                <h3><a href="" class="stretched-link">Dirada Pack</a></h3>
-              </div>
-            </div><!-- End Feature Item -->
-  
-            <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="1000">
-              <div class="features-item">
-                <i class="bi bi-dribbble" style="color: #b20969;"></i>
-                <h3><a href="" class="stretched-link">Moton Ideal</a></h3>
-              </div>
-            </div><!-- End Feature Item -->
-  
-            <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="1100">
-              <div class="features-item">
-                <i class="bi bi-activity" style="color: #ff5828;"></i>
-                <h3><a href="" class="stretched-link">Verdo Park</a></h3>
-              </div>
-            </div><!-- End Feature Item -->
-  
-            <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="1200">
-              <div class="features-item">
-                <i class="bi bi-brightness-high" style="color: #29cc61;"></i>
-                <h3><a href="" class="stretched-link">Flavor Nivelanda</a></h3>
-              </div>
-            </div><!-- End Feature Item -->
-  
+      
           </div>
   
         </div>
   
-      </section><!-- /Features Section -->
+      </section> 
   
       <!-- Stats Section -->
       <section id="stats" class="stats section light-background">
   
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="container " data-aos="fade-up" data-aos-delay="99">
   
-          <div class="row gy-4">
-  
-            <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+          <div class="row gy-5">
+            <div class="col-lg-6 col-md-6 d-flex flex-column align-items-center">
               <i class="bi bi-emoji-smile"></i>
               <div class="stats-item">
-                <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+                <span id="happyClients">Loading...</span>
                 <p>Happy Clients</p>
               </div>
-            </div><!-- End Stats Item -->
-  
-            <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+            </div>
+            <div class="col-lg-6 col-md-6 d-flex flex-column align-items-center">
               <i class="bi bi-journal-richtext"></i>
-              <div class="stats-item">
-                <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Projects</p>
+              <div class="stats-item ">
+                <span id="videosAnalyzed" >Loading...</span>
+                <p>Videos Analyzed</p>
               </div>
-            </div><!-- End Stats Item -->
-  
-            <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
-              <i class="bi bi-headset"></i>
-              <div class="stats-item">
-                <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Hours Of Support</p>
-              </div>
-            </div><!-- End Stats Item -->
-  
-            <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
-              <i class="bi bi-people"></i>
-              <div class="stats-item">
-                <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Hard Workers</p>
-              </div>
-            </div><!-- End Stats Item -->
+            </div>
+          </div>
+            
+  <!-- Video analyzed -->
+            
+
+            
+       
+              
+            </div> 
   
           </div>
   
         </div>
   
       </section><!-- /Stats Section -->
+      
   
       <!-- Details Section -->
       <section id="details" class="details section">
   
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
-          <h2>Details</h2>
-          <div><span>Check Our</span> <span class="description-title">Details</span></div>
+          <h2>GOALS</h2>
+          <div><span> Our</span> <span class="description-title">Goals</span></div>
         </div><!-- End Section Title -->
   
         <div class="container">
@@ -328,15 +248,33 @@
               <img src="{{ url_for('static', filename='images/details-1.png') }}" class="img-fluid" alt="">
             </div>
             <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
-              <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+              <h3> Goals for SilverScreenIQ
+                Deliver Unmatched Accuracy
+                </h3>
               <p class="fst-italic">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua.
+                Continuously enhance AI algorithms to ensure precise detection and censorship of inappropriate content, minimizing false positives and negatives.
+                  Promote Safe Viewing Experiences
               </p>
               <ul>
-                <li><i class="bi bi-check"></i><span> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-                <li><i class="bi bi-check"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-                <li><i class="bi bi-check"></i> <span>Ullam est qui quos consequatur eos accusamus.</span></li>
+                <li><i class="bi bi-check"></i><span> Empower users to create family-friendly, community-safe video content tailored to their values.
+
+                  </span></li>
+                <li><i class="bi bi-check"></i> <span> Expand accessibility with multilingual support and user-friendly global interfaces.
+                </span></li>
+                <li><i class="bi bi-check"></i> <span>Ensure privacy and security by securely handling and deleting user-uploaded videos.
+                </span></li>
+                <li><i class="bi bi-check"></i> <span>Offer scalable plans for individuals, families, educators, and businesses.
+                </span></li>
+                <li><i class="bi bi-check"></i> <span>Provide tools for manual review and customization of censored content.
+                </span></li>
+                <li><i class="bi bi-check"></i> <span>Innovate with features like real-time filtering and live-stream analysis.
+                </span></li>
+                <li><i class="bi bi-check"></i> <span>Build trust with transparency about system capabilities and updates.
+                </span></li>
+                <li><i class="bi bi-check"></i> <span>Champion ethical AI with fairness, inclusivity, and cultural respect.
+                </span></li>
+                <li><i class="bi bi-check"></i> <span>Promote media literacy through resources on safe content consumption.
+                </span></li>
               </ul>
             </div>
           </div><!-- Features Item -->
@@ -357,9 +295,9 @@
                 culpa qui officia deserunt mollit anim id est laborum
               </p>
             </div>
-          </div><!-- Features Item -->
+          </div>
   
-          <div class="row gy-4 align-items-center features-item">
+          <!-- <div class="row gy-4 align-items-center features-item">
             <div class="col-md-5 d-flex align-items-center" data-aos="zoom-out">
               <img src="{{ url_for('static', filename='images/details-3.png') }}"  class="img-fluid" alt="">
             </div>
@@ -372,24 +310,45 @@
                 <li><i class="bi bi-check"></i> <span>Facilis ut et voluptatem aperiam. Autem soluta ad fugiat</span>.</li>
               </ul>
             </div>
-          </div><!-- Features Item -->
+          </div> -->
   
+
           <div class="row gy-4 align-items-center features-item">
-            <div class="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out">
-              <!-- <img src="assets/img/details-4.png" class="img-fluid" alt=""> -->
+            <div class="col-md-5 order-1 order-md-3 d-flex align-items-center" data-aos="zoom-out">
               <img src="{{ url_for('static', filename='images/details-4.png') }}"  class="img-fluid" alt="">
+
+
             </div>
             <div class="col-md-7 order-2 order-md-1" data-aos="fade-up">
-              <h3>Quas et necessitatibus eaque impedit ipsum animi consequatur incidunt in</h3>
+              <h3> Privacy policy</h3>
               <p class="fst-italic">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua.
-              </p>
-              <p>
-                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                culpa qui officia deserunt mollit anim id est laborum
-              </p>
+                Effective Date: January 7th, 2025
+
+                <section id="privacy-policy" class="privacy-policy section">
+                  <div class="container">
+                    <h2>Privacy Policy</h2>
+                    
+                    <p>At <strong>SilverScreenIQ</strong>, your privacy is our priority. This Privacy Policy explains how we handle your information when you use our platform. By accessing our services, you agree to the practices below.</p>
+                    
+                    <p>We collect uploaded videos temporarily for processing, and they are automatically deleted within 2 hours after completion. If you create an account, we collect your name and email address, but no sensitive data is collected unless required.</p>
+                    
+                    <p>Your information is used to process and censor uploaded videos, provide processed videos with timestamps, improve website functionality, and respond to your inquiries. We do not sell, rent, or share your data for marketing purposes.</p>
+                    
+                    <p>Uploaded videos are stored only for processing and are automatically deleted after 2 hours. We do not retain or access video content beyond the analysis phase, ensuring strict privacy.</p>
+                    
+                    <p>We prioritize data security with encryption, secure servers, and regular audits. However, as no method of transmission or storage is entirely secure, we recommend caution when sharing sensitive information.</p>
+                    
+                    <p>Cookies are used to analyze traffic, remember preferences, and improve functionality. You can manage cookie preferences through your browser settings, though disabling cookies may affect some website features.</p>
+                    
+                    <p>We use trusted third-party services (e.g., cloud storage providers) to support our platform securely and responsibly.</p>
+                    
+                    <p>You have the right to access, update, or delete your personal data, request information on how your data is processed, and opt out of non-essential data collection. To exercise these rights, contact us at <strong>silverscreeniq@gmail.com</strong>.</p>
+                    
+                    <p>We may update this Privacy Policy from time to time. Any changes will be posted here with the updated effective date. We encourage you to review this policy periodically to stay informed.</p>
+                  </div>
+                </section>
+                
+                
             </div>
           </div><!-- Features Item -->
   
@@ -398,13 +357,13 @@
       </section><!-- /Details Section -->
   
       <!-- Gallery Section -->
-      <section id="gallery" class="gallery section">
+      <!-- <section id="gallery" class="gallery section">
   
-        <!-- Section Title -->
+        
         <div class="container section-title" data-aos="fade-up">
           <h2>Gallery</h2>
           <div><span>Check Our</span> <span class="description-title">Gallery</span></div>
-        </div><!-- End Section Title -->
+        </div>
   
         <div class="container" data-aos="fade-up" data-aos-delay="100">
   
@@ -416,7 +375,7 @@
                   <img src="{{ url_for('static', filename='images/gallery/gallery-1.jpg') }}"  class="img-fluid" alt="">
                 </a>
               </div>
-            </div><!-- End Gallery Item -->
+            </div>
   
             <div class="col-lg-3 col-md-4">
               <div class="gallery-item">
@@ -426,7 +385,7 @@
                     </a>
                 </a>
               </div>
-            </div><!-- End Gallery Item -->
+            </div>
   
             <div class="col-lg-3 col-md-4">
               <div class="gallery-item">
@@ -434,7 +393,7 @@
                       <img src="{{ url_for('static', filename='images/gallery/gallery-3.jpg') }}"  class="img-fluid" alt="">
                 </a>
               </div>
-            </div><!-- End Gallery Item -->
+            </div>
   
             <div class="col-lg-3 col-md-4">
               <div class="gallery-item">
@@ -442,7 +401,7 @@
                       <img src="{{ url_for('static', filename='images/gallery/gallery-4.jpg') }}"  class="img-fluid" alt="">
                 </a>
               </div>
-            </div><!-- End Gallery Item -->
+            </div>
   
             <div class="col-lg-3 col-md-4">
               <div class="gallery-item">
@@ -450,7 +409,7 @@
                       <img src="{{ url_for('static', filename='images/gallery/gallery-5.jpg') }}"  class="img-fluid" alt="">
                 </a>
               </div>
-            </div><!-- End Gallery Item -->
+            </div>
   
             <div class="col-lg-3 col-md-4">
               <div class="gallery-item">
@@ -458,7 +417,7 @@
                       <img src="{{ url_for('static', filename='images/gallery/gallery-6.jpg') }}"  class="img-fluid" alt="">
                 </a>
               </div>
-            </div><!-- End Gallery Item -->
+            </div>
   
             <div class="col-lg-3 col-md-4">
               <div class="gallery-item">
@@ -466,7 +425,7 @@
                       <img src="{{ url_for('static', filename='images/gallery/gallery-7.jpg') }}"  class="img-fluid" alt="">
                 </a>
               </div>
-            </div><!-- End Gallery Item -->
+            </div>
   
             <div class="col-lg-3 col-md-4">
               <div class="gallery-item">
@@ -474,19 +433,19 @@
                       <img src="{{ url_for('static', filename='images/gallery/gallery-8.jpg') }}"  class="img-fluid" alt="">
                 </a>
               </div>
-            </div><!-- End Gallery Item -->
+            </div>
   
           </div>
   
         </div>
   
-      </section><!-- /Gallery Section -->
+      </section> -->
   
       <!-- Testimonials Section -->
       
       <section id="testimonials" class="testimonials section dark-background">
 
-        <img src="{{ url_for('static', filename='images/testimonials-bg.jpg') }}" alt="">
+        <img src="{{ url_for('static', filename='images/testimonials-bg.png') }}" alt="">
   
         <div class="container" data-aos="fade-up" data-aos-delay="100">
   
@@ -616,7 +575,7 @@
               <div class="member">
                 <div class="pic"><img src="{{ url_for('static', filename='images/team/team-1.jpg') }}" class="img-fluid" alt=""></div>
                 <div class="member-info">
-                  <h4>Walter White</h4>
+                  <h4>Muhammad Abdullah Suleman</h4>
                   <span>Chief Executive Officer</span>
                   <div class="social">
                     <a href=""><i class="bi bi-twitter-x"></i></a>
@@ -632,7 +591,7 @@
               <div class="member">
                 <div class="pic"><img src="{{ url_for('static', filename='images/team/team-2.jpg') }}" class="img-fluid" alt=""></div>
                 <div class="member-info">
-                  <h4>Sarah Jhonson</h4>
+                  <h4>Dua Qureshi</h4>
                   <span>Product Manager</span>
                   <div class="social">
                     <a href=""><i class="bi bi-twitter-x"></i></a>
@@ -648,7 +607,7 @@
               <div class="member">
                 <div class="pic"><img src="{{ url_for('static', filename='images/team/team-3.jpg') }}"  class="img-fluid" alt=""></div>
                 <div class="member-info">
-                  <h4>William Anderson</h4>
+                  <h4> Muhammad Amzar Naseem</h4>
                   <span>CTO</span>
                   <div class="social">
                     <a href=""><i class="bi bi-twitter-x"></i></a>
@@ -679,7 +638,8 @@
   
           <div class="row gy-4">
   
-            <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+            <!-- Free plan -->
+           <!-- <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
               <div class="pricing-item">
                 <h3>Free Plan</h3>
                 <p class="description">Ullam mollitia quasi nobis soluta in voluptatum et sint palora dex strater</p>
@@ -696,9 +656,28 @@
                   <li class="na"><i class="bi bi-x"></i> <span>Iure nihil dolores recusandae odit voluptatibus</span></li>
                 </ul>
               </div>
-            </div><!-- End Pricing Item -->
-  
-            <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+            </div>  -->
+            <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+              <div class="pricing-item">
+                <h3>Free Plan</h3>
+                <p class="description">Get started with basic video analysis, including detection of profanity and nudity.</p>
+                <h4><sup>$</sup>0<span> / month</span></h4>
+                <a href="#" class="cta-btn">Start a free trial</a>
+                <p class="text-center small">No credit card required</p>
+                <ul>
+                  <li><i class="bi bi-check"></i> <span>Upload up to 5 videos</span></li>
+                  <li><i class="bi bi-check"></i> <span>Basic detection: profanity and nudity</span></li>
+                  <li><i class="bi bi-check"></i> <span>Email support</span></li>
+                  <li class="na"><i class="bi bi-x"></i> <span>Kissing and inappropriate clothing detection</span></li>
+                  <li class="na"><i class="bi bi-x"></i> <span>Priority support</span></li>
+                  <li class="na"><i class="bi bi-x"></i> <span>Customizable detection settings</span></li>
+                  <li class="na"><i class="bi bi-x"></i> <span>Advanced reports and analytics</span></li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- Business Plan -->
+            <!-- <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
               <div class="pricing-item featured">
                 <p class="popular">Popular</p>
                 <h3>Business Plan</h3>
@@ -716,9 +695,31 @@
                   <li class="na"><i class="bi bi-x"></i> <span>Iure nihil dolores recusandae odit voluptatibus</span></li>
                 </ul>
               </div>
-            </div><!-- End Pricing Item -->
-  
-            <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+            </div> -->
+            
+            <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+              <div class="pricing-item featured">
+                <p class="popular">Popular</p>
+                <h3>Business Plan</h3>
+                <h4><sup>$</sup>29<span> / month</span></h4>
+                <p class="description">Advanced video analysis with filters for detecting kissing, nudity, profanity, and more.</p>
+                <ul>
+                  <li><i class="bi bi-check"></i> <span>Upload up to 100 videos</span></li>
+                  <li><i class="bi bi-check"></i> <span>Filters for profanity, nudity, and kissing</span></li>
+                  <li><i class="bi bi-check"></i> <span>Priority support</span></li>
+                  <li><i class="bi bi-check"></i> <span>Customizable detection settings</span></li>
+                  <li><i class="bi bi-check"></i> <span>Supports multiple video formats</span></li>
+                  <li class="na"><i class="bi bi-x"></i> <span>Unlimited video uploads (not included in this plan)</span></li>
+                </ul>
+                <div class="text-center">
+                  <a href="#" class="cta-btn">Choose Business Plan</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Developer Plan -->
+
+            <!-- <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
               <div class="pricing-item">
                 <h3>Developer Plan</h3>
                 <p class="description">Ullam mollitia quasi nobis soluta in voluptatum et sint palora dex strater</p>
@@ -735,8 +736,26 @@
                   <li><i class="bi bi-check"></i> <span>Iure nihil dolores recusandae odit voluptatibus</span></li>
                 </ul>
               </div>
-            </div><!-- End Pricing Item -->
-  
+            </div> -->
+            <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+              <div class="pricing-item">
+                <h3>Developer Plan</h3>
+                <p class="description">Advanced plan for developers needing extensive video analysis with full detection capabilities.</p>
+                <h4><sup>$</sup>49<span> / month</span></h4>
+                <a href="#" class="cta-btn">Start a free trial</a>
+                <p class="text-center small">No credit card required</p>
+                <ul>
+                  <li><i class="bi bi-check"></i> <span>Upload up to 200 videos</span></li>
+                  <li><i class="bi bi-check"></i> <span>Full detection: profanity, nudity, kissing, and inappropriate clothing</span></li>
+                  <li><i class="bi bi-check"></i> <span>Advanced analytics and detailed reports</span></li>
+                  <li><i class="bi bi-check"></i> <span>Customizable detection filters</span></li>
+                  <li><i class="bi bi-check"></i> <span>Priority support</span></li>
+                  <li><i class="bi bi-check"></i> <span>Real-time processing capabilities</span></li>
+                  <li><i class="bi bi-check"></i> <span>Access to API for integrations</span></li>
+                </ul>
+              </div>
+            </div>
+            
           </div>
   
         </div>
@@ -754,36 +773,94 @@
   
               <div class="content px-xl-5" data-aos="fade-up" data-aos-delay="100">
                 <h3><span>Frequently Asked </span><strong>Questions</strong></h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                </p>
+              
               </div>
   
               <div class="faq-container px-xl-5" data-aos="fade-up" data-aos-delay="200">
   
                 <div class="faq-item faq-active">
                   <i class="faq-icon bi bi-question-circle"></i>
-                  <h3>Non consectetur a erat nam at lectus urna duis?</h3>
+                  <h3>1. What types of content does your platform detect and censor?
+                  </h3>
                   <div class="faq-content">
-                    <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>
+                    <p>Our platform is designed to detect and censor inappropriate content, including nudity, kissing scenes, and violence. These categories help ensure the video aligns with family-friendly or professional standards.
+                    </p>
                   </div>
                   <i class="faq-toggle bi bi-chevron-right"></i>
                 </div><!-- End Faq item-->
   
                 <div class="faq-item">
                   <i class="faq-icon bi bi-question-circle"></i>
-                  <h3>Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</h3>
+                  <h3>2. How accurate is the content detection?
+                  </h3>
                   <div class="faq-content">
-                    <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+                    <p>Our system uses advanced AI models trained on diverse datasets to ensure high accuracy in detecting inappropriate content. While no system is perfect, we constantly update our algorithms to improve precision and minimize errors.
+                    </p>
                   </div>
                   <i class="faq-toggle bi bi-chevron-right"></i>
                 </div><!-- End Faq item-->
   
                 <div class="faq-item">
                   <i class="faq-icon bi bi-question-circle"></i>
-                  <h3>Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
+                  <h3>3. Can I customize what gets censored?
+                  </h3>
                   <div class="faq-content">
-                    <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
+                    <p>Yes! You can choose which categories to censor. For example, you can opt to remove only nudity or violence, depending on your preferences.
+                    </p>
+                  </div>
+                  <i class="faq-toggle bi bi-chevron-right"></i>
+                </div><!-- End Faq item-->
+
+                <div class="faq-item">
+                  <i class="faq-icon bi bi-question-circle"></i>
+                  <h3>4. Will the edited video lose quality?
+                  </h3>
+                  <div class="faq-content">
+                    <p>No, the edited video retains the original quality as much as possible. Our platform ensures that only the inappropriate segments are removed, while the rest of the video remains untouched.
+
+                    </p>
+                  </div>
+                  <i class="faq-toggle bi bi-chevron-right"></i>
+                </div><!-- End Faq item-->
+
+                <div class="faq-item">
+                  <i class="faq-icon bi bi-question-circle"></i>
+                  <h3>5. How long does it take to analyze and render a video?
+
+                  </h3>
+                  <div class="faq-content">
+                    <p>The time required depends on the length and size of the video. Typically, shorter videos are processed in just a few minutes, while longer ones may take a bit more time.
+
+                    </p>
+                  </div>
+                  <i class="faq-toggle bi bi-chevron-right"></i>
+                </div><!-- End Faq item-->
+
+                <div class="faq-item">
+                  <i class="faq-icon bi bi-question-circle"></i>
+                  <h3>6. Is my uploaded video safe?
+
+
+                  </h3>
+                  <div class="faq-content">
+                    <p>Absolutely. Your privacy is our priority. All uploaded videos are processed securely and are not stored on our servers once the analysis and editing are complete.
+
+
+                    </p>
+                  </div>
+                  <i class="faq-toggle bi bi-chevron-right"></i>
+                </div><!-- End Faq item-->
+
+                <div class="faq-item">
+                  <i class="faq-icon bi bi-question-circle"></i>
+                  <h3>7. Can I download the timestamps of detected scenes?
+
+
+                  </h3>
+                  <div class="faq-content">
+                    <p>Yes, along with the edited video, you’ll receive a detailed report listing the timestamps of all detected inappropriate scenes for your reference.
+
+                    </p>
                   </div>
                   <i class="faq-toggle bi bi-chevron-right"></i>
                 </div><!-- End Faq item-->
@@ -819,7 +896,7 @@
                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                 <div>
                   <h3>Address</h3>
-                  <p>A108 Adam Street, New York, NY 535022</p>
+                  <p> S-426 D Forman Christian College, Zahoor Elahi Rd, Gulberg III, Lahore, Punjab 54600</p>
                 </div>
               </div><!-- End Info Item -->
   
@@ -827,7 +904,8 @@
                 <i class="bi bi-telephone flex-shrink-0"></i>
                 <div>
                   <h3>Call Us</h3>
-                  <p>+1 5589 55488 55</p>
+                  <p>+92-42-111-755-755
+                  </p>
                 </div>
               </div><!-- End Info Item -->
   
@@ -835,7 +913,8 @@
                 <i class="bi bi-envelope flex-shrink-0"></i>
                 <div>
                   <h3>Email Us</h3>
-                  <p>info@example.com</p>
+                  <p>SilverScreenIQ@gmail.com
+                  </p>
                 </div>
               </div><!-- End Info Item -->
   
@@ -958,6 +1037,61 @@
       <script src="{{ url_for('static', filename='assests/vendor/swiper/swiper-bundle.min.js') }}"></script>
       <script src="{{ url_for('static', filename='assests/js/main.js') }}"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+      
+      
+      <script>
+        document.getElementById('happyClients').innerText = 'Loading...';
+      
+        // Fetch happy clients count from the API
+        fetch('/api/happy-clients')
+          .then(response => response.json())
+          .then(data => {
+            console.log(data);  // Log the response data for debugging
+      
+            const happyClientsElement = document.getElementById('happyClients');
+      
+            if (data.count !== undefined) {
+              // Display only the count
+              happyClientsElement.innerText = data.count;
+            } else {
+              happyClientsElement.innerText = '0';  // Fallback if no count found
+            }
+          })
+          .catch(error => {
+            console.error('Error fetching happy clients:', error);
+            document.getElementById('happyClients').innerText = 'Error';
+          });
+      </script>
+
+<script>
+  document.getElementById('videosAnalyzed').innerText = 'Loading...';
+
+  // Fetch videos analyzed count from the API
+  fetch('/api/videos-analyzed')  // Replace with your actual API endpoint
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);  // Log the response data for debugging
+
+      const videosAnalyzedElement = document.getElementById('videosAnalyzed');
+
+      if (data.count !== undefined) {
+        // Display the count of videos analyzed
+        videosAnalyzedElement.innerText = data.count;
+      } else {
+        videosAnalyzedElement.innerText = '0';  // Fallback if no count found
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching videos analyzed:', error);
+      document.getElementById('videosAnalyzed').innerText = 'Error';
+    });
+</script>
+      
+      
+      
+
+
+
 </body>
 
 </html>

@@ -25,10 +25,7 @@
   </head>
 
   <body class="index-page dark-background">
-    <header
-      id="header"
-      class="header d-flex align-items-center fixed-top dark-background"
-    >
+    <header id="header" class="header d-flex align-items-center fixed-top">
       <div
         class="container-fluid container-xl d-flex align-items-center justify-content-between"
       >
@@ -46,7 +43,7 @@
             {% if session.get('user') %}
             <li><a href="{{ url_for('view_rendering') }}">Upload Video</a></li>
             {% endif %}
-            <li><a href="#about">About</a></li>
+            <li><a href="{{ url_for('about-us') }}">About</a></li>
             <li><a href="{{ url_for('pricing') }}">Pricing</a></li>
             <li><a href="{{ url_for('contact') }}">Contact</a></li>
             {% if not session.get('user') %}
@@ -62,38 +59,8 @@
     </header>
 
     <main class="main mt-5 pt-5">
-      <section class="container py-5">
-        <h2 class="text-center mb-4">Privacy Policy</h2>
-        <p class="text-justify">
-          At SilverScreen IQ, we value your privacy and are committed to
-          protecting your personal information. This policy outlines how we
-          collect, use, and safeguard your data when you use our services.
-        </p>
-        <p class="text-justify">
-          We collect data to improve your experience and to provide personalized
-          services. This includes, but is not limited to, information you
-          provide during registration, such as your name, email address, and
-          payment details. Rest assured, your information is stored securely and
-          is not shared with third parties without your consent.
-        </p>
-        <p class="text-justify">
-          Our website uses cookies to enhance your user experience. Cookies help
-          us understand your preferences and tailor our services accordingly.
-          You have the option to disable cookies in your browser settings,
-          though this may limit the functionality of certain features.
-        </p>
-        <p class="text-justify">
-          We employ robust security measures to protect your data against
-          unauthorized access and misuse. However, no method of transmission
-          over the internet is completely secure. We encourage you to use strong
-          passwords and keep your account information confidential.
-        </p>
-        <p class="text-justify">
-          If you have any questions or concerns about our privacy practices,
-          please do not hesitate to contact us. Your trust is important to us,
-          and we strive to maintain transparency in all our dealings.
-        </p>
-      </section>
+   
+        
     </main>
 
     <footer id="footer" class="footer dark-background">
@@ -185,6 +152,7 @@
         </div>
       </div>
     </footer>
+
     <script src="{{ url_for('static', filename='assests/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ url_for('static', filename='assests/js/main.js') }}"></script>
   </body>

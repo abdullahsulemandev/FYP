@@ -39,7 +39,7 @@
               <li><a href="{{ url_for('view_rendering') }}">Upload Video</a></li>
             {% endif %}
             <li><a href="#about">About</a></li>
-            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="{{ url_for('pricing') }}">Pricing</a></li>
             <li><a href="{{ url_for('contact') }}">Contact</a></li>
             {% if not session.get('user') %}
               <li><a href="{{ url_for('login') }}">Login</a></li>
@@ -58,79 +58,83 @@
      <!-- Pricing Section -->
      <section id="pricing" class="pricing section">
   
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-          <h2>Pricing</h2>
-          <div><span>Check Our</span> <span class="description-title">Pricing</span></div>
-        </div><!-- End Section Title -->
-  
-        <div class="container">
-  
-          <div class="row gy-4">
-  
-            <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-              <div class="pricing-item">
-                <h3>Free Plan</h3>
-                <p class="description">Ullam mollitia quasi nobis soluta in voluptatum et sint palora dex strater</p>
-                <h4><sup>$</sup>0<span> / month</span></h4>
-                <a href="#" class="cta-btn">Start a free trial</a>
-                <p class="text-center small">No credit card required</p>
-                <ul>
-                  <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-                  <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-                  <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-                  <li class="na"><i class="bi bi-x"></i> <span>Pharetra massa massa ultricies</span></li>
-                  <li class="na"><i class="bi bi-x"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-                  <li class="na"><i class="bi bi-x"></i> <span>Voluptate id voluptas qui sed aperiam rerum</span></li>
-                  <li class="na"><i class="bi bi-x"></i> <span>Iure nihil dolores recusandae odit voluptatibus</span></li>
-                </ul>
-              </div>
-            </div><!-- End Pricing Item -->
-  
-            <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
-              <div class="pricing-item featured">
-                <p class="popular">Popular</p>
-                <h3>Business Plan</h3>
-                <p class="description">Ullam mollitia quasi nobis soluta in voluptatum et sint palora dex strater</p>
-                <h4><sup>$</sup>29<span> / month</span></h4>
-                <a href="#" class="cta-btn">Start a free trial</a>
-                <p class="text-center small">No credit card required</p>
-                <ul>
-                  <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-                  <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-                  <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-                  <li><i class="bi bi-check"></i> <span>Pharetra massa massa ultricies</span></li>
-                  <li><i class="bi bi-check"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-                  <li><i class="bi bi-check"></i> <span>Voluptate id voluptas qui sed aperiam rerum</span></li>
-                  <li class="na"><i class="bi bi-x"></i> <span>Iure nihil dolores recusandae odit voluptatibus</span></li>
-                </ul>
-              </div>
-            </div><!-- End Pricing Item -->
-  
-            <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
-              <div class="pricing-item">
-                <h3>Developer Plan</h3>
-                <p class="description">Ullam mollitia quasi nobis soluta in voluptatum et sint palora dex strater</p>
-                <h4><sup>$</sup>49<span> / month</span></h4>
-                <a href="#" class="cta-btn">Start a free trial</a>
-                <p class="text-center small">No credit card required</p>
-                <ul>
-                  <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-                  <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-                  <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-                  <li><i class="bi bi-check"></i> <span>Pharetra massa massa ultricies</span></li>
-                  <li><i class="bi bi-check"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-                  <li><i class="bi bi-check"></i> <span>Voluptate id voluptas qui sed aperiam rerum</span></li>
-                  <li><i class="bi bi-check"></i> <span>Iure nihil dolores recusandae odit voluptatibus</span></li>
-                </ul>
-              </div>
-            </div><!-- End Pricing Item -->
-  
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Pricing</h2>
+        <div><span>Check Our</span> <span class="description-title">Pricing</span></div>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="pricing-item">
+              <h3>Free Plan</h3>
+              <p class="description">Get started with basic video analysis, including detection of profanity and nudity.</p>
+              <h4><sup>$</sup>0<span> / month</span></h4>
+              <a href="#" class="cta-btn">Start a free trial</a>
+              <p class="text-center small">No credit card required</p>
+              <ul>
+                <li><i class="bi bi-check"></i> <span>Upload up to 5 videos</span></li>
+                <li><i class="bi bi-check"></i> <span>Basic detection: profanity and nudity</span></li>
+                <li><i class="bi bi-check"></i> <span>Email support</span></li>
+                <li class="na"><i class="bi bi-x"></i> <span>Kissing and inappropriate clothing detection</span></li>
+                <li class="na"><i class="bi bi-x"></i> <span>Priority support</span></li>
+                <li class="na"><i class="bi bi-x"></i> <span>Customizable detection settings</span></li>
+                <li class="na"><i class="bi bi-x"></i> <span>Advanced reports and analytics</span></li>
+              </ul>
+            </div>
           </div>
-  
+          
+          
+          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+            <div class="pricing-item featured">
+              <p class="popular">Popular</p>
+              <h3>Business Plan</h3>
+              <h4><sup>$</sup>29<span> / month</span></h4>
+              <p class="description">Advanced video analysis with filters for detecting kissing, nudity, profanity, and more.</p>
+              <ul>
+                <li><i class="bi bi-check"></i> <span>Upload up to 100 videos</span></li>
+                <li><i class="bi bi-check"></i> <span>Filters for profanity, nudity, and kissing</span></li>
+                <li><i class="bi bi-check"></i> <span>Priority support</span></li>
+                <li><i class="bi bi-check"></i> <span>Customizable detection settings</span></li>
+                <li><i class="bi bi-check"></i> <span>Supports multiple video formats</span></li>
+                <li class="na"><i class="bi bi-x"></i> <span>Unlimited video uploads (not included in this plan)</span></li>
+              </ul>
+              <div class="text-center">
+                <a href="#" class="cta-btn">Choose Business Plan</a>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+            <div class="pricing-item">
+              <h3>Developer Plan</h3>
+              <p class="description">Advanced plan for developers needing extensive video analysis with full detection capabilities.</p>
+              <h4><sup>$</sup>49<span> / month</span></h4>
+              <a href="#" class="cta-btn">Start a free trial</a>
+              <p class="text-center small">No credit card required</p>
+              <ul>
+                <li><i class="bi bi-check"></i> <span>Upload up to 200 videos</span></li>
+                <li><i class="bi bi-check"></i> <span>Full detection: profanity, nudity, kissing, and inappropriate clothing</span></li>
+                <li><i class="bi bi-check"></i> <span>Advanced analytics and detailed reports</span></li>
+                <li><i class="bi bi-check"></i> <span>Customizable detection filters</span></li>
+                <li><i class="bi bi-check"></i> <span>Priority support</span></li>
+                <li><i class="bi bi-check"></i> <span>Real-time processing capabilities</span></li>
+                <li><i class="bi bi-check"></i> <span>Access to API for integrations</span></li>
+              </ul>
+            </div>
+          </div>
+          
         </div>
-  
-      </section><!-- /Pricing Section -->
+
+      </div>
+
+    </section>
+    
+    
   
       </main>
       

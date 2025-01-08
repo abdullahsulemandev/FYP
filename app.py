@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for, flash, send_file
-from database import init_db, add_user, check_user_credentials, update_user_password, find_user_by_email, save_feedback, get_all_feedback,save_detected_filter, DB_PATH
+from database import init_db, add_user, check_user_credentials, update_user_password, find_user_by_email, save_feedback, get_all_feedback,save_detected_filter, DB_PATH, get_happy_clients_count, get_videos_analyzed_count, increment_videos_analyzed_count
 import cv2
 from ultralytics import YOLO as YOLOv8
 import os
@@ -43,7 +43,7 @@ def process_video(video_path, output_path, video_id, user_email):
         print(f"Error: Could not open video file {video_path}")
         progress_data[video_id] = -1  # Indicate failure
         return
-
+    
     total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
     fps = cap.get(cv2.CAP_PROP_FPS)
     width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
@@ -104,6 +104,10 @@ def process_video(video_path, output_path, video_id, user_email):
     cap.release()
     out.release()
     progress_data[video_id] = 100  # Mark as complete
+    
+    # Increment the count of analyzed videos
+    increment_videos_analyzed_count()
+
 
     print("Processing complete.")
 
@@ -362,6 +366,21 @@ def get_filters():
         return jsonify({'error': f"Error fetching filters: {e}"}), 500
 
   
+# Route to fetch happy clients count
+@app.route('/api/happy-clients')
+def happy_clients():
+    count = get_happy_clients_count()  # Fetch the count from the database
+    print(f"Happy clients count fetched: {count}")  # Print the count to the console for debugging
+    return jsonify({"count": count})
+
+  # Route to fetch video analyzed
+@app.route('/api/videos-analyzed')
+def videos_analyzed():
+    # Fetch the count of analyzed videos from the database (update with actual logic)
+    count = get_videos_analyzed_count()  # Replace with your actual method to get the count
+    return jsonify({"count": count})
+  
+  
 
 # Get applied filter by user
 @app.route('/get_applied_filter/<video_id>', methods=['GET'])
@@ -399,7 +418,7 @@ def get_applied_filter(video_id):
 # Default Route
 @app.route('/')
 def index():
-    return redirect(url_for('login'))
+    return redirect(url_for('home'))
 
 
 # Run the Flask App
