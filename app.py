@@ -418,7 +418,7 @@ def get_applied_filter(video_id):
 # Default Route
 @app.route('/')
 def index():
-    return redirect(url_for('home'))
+    return redirect(url_for('login'))
 
 
 # Run the Flask App
